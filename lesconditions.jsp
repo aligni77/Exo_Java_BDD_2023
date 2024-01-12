@@ -39,13 +39,13 @@ A, B et C et dites nous si la valeur de C est comprise entre A et B.</br>
 <%-- Vérification de la condition pour l'exercice 1 --%>
 <% if (valeurA != null && valeurB != null && valeurC != null) { %>
     <%-- Conversion des valeurs en entiers pour la comparaison --%>
-    <% int intValeurA = Integer.parseInt(valeurA); %>
-    <% int intValeurB = Integer.parseInt(valeurB); %>
-    <% int intValeurC = Integer.parseInt(valeurC); %>
+    <% int integerValeurA = Integer.parseInt(valeurA); %>
+    <% int integerValeurB = Integer.parseInt(valeurB); %>
+    <% int integerValeurC = Integer.parseInt(valeurC); %>
 
     <%-- Condition if pour vérifier si C est compris entre A et B --%>
     <%
-    if (intValeurC >= intValeurA && intValeurC <= intValeurB) {
+    if (integerValeurC >= integerValeurA && integerValeurC <= intValeurB) {
     %>
         <p>Oui, C est compris entre A et B.</p>
     <%

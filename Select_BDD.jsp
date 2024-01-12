@@ -175,6 +175,9 @@
         <label for="nouvelleAnnee">Année du nouveau film :</label>
         <input type="text" name="nouvelleAnnee" id="nouvelleAnnee">
         <br>
+        <label for="nouveauGenre">Genre du nouveau film :</label>
+        <input type="text" name="nouveauGenre" id="nouveauGenre">
+        <br>
         <input type="submit" value="Ajouter le film">
     </form>
 
@@ -190,12 +193,14 @@
         String nouvelIdFilmStr = request.getParameter("nouvelIdFilm");
         String nouveauTitre = request.getParameter("nouveauTitre");
         String nouvelleAnneeStr = request.getParameter("nouvelleAnnee");
+        String nouveauGenre = request.getParameter("nouveauGenre");
 
         out.println("Nouvel ID du film : " + nouvelIdFilmStr); // Message de débogage
         out.println("Nouveau Titre : " + nouveauTitre); // Message de débogage
         out.println("Nouvelle Année : " + nouvelleAnneeStr); // Message de débogage
+        out.println("Nouveau Genre : " + nouveauGenre); // Message de débogage
 
-        if (nouveauTitre != null && nouvelleAnneeStr != null) {
+        if (nouveauTitre != null && nouvelleAnneeStr != null && nouveauGenre != null) {
             try {
                 int nouvelIdFilm = (nouvelIdFilmStr != null && !nouvelIdFilmStr.isEmpty()) ? Integer.parseInt(nouvelIdFilmStr) : -1;
 
@@ -208,8 +213,8 @@
                     String verifIdSql = "SELECT idFilm FROM Film WHERE idFilm = ?";
                     try (PreparedStatement verifIdStmt = conn4.prepareStatement(verifIdSql)) {
                         verifIdStmt.setInt(1, nouvelIdFilm);
-                        try (ResultSet rs4 = verifIdStmt.executeQuery()) {
-                            idExiste = rs4.next();
+                        try (ResultSet rs = verifIdStmt.executeQuery()) {
+                            idExiste = rs.next();
                         }
                     }
                 }
@@ -221,7 +226,7 @@
                         pstmt4.setInt(1, nouvelIdFilm);
                         pstmt4.setString(2, nouveauTitre);
                         pstmt4.setInt(3, Integer.parseInt(nouvelleAnneeStr));
-                        pstmt4.setString(4, "Réel");
+                        pstmt4.setString(4, nouveauGenre);
 
                         int rowsInserted = pstmt4.executeUpdate();
 
@@ -244,6 +249,7 @@
         }
     }
     %>
+
 
 </body>
 </html>

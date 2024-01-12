@@ -108,17 +108,26 @@
 <h2>Exercice 6 : Le demi losange</h2>
 <p>Ecrire le code afin de produire un losange</p>
 <%
-    // Boucle for pour générer la partie gauche du demi-losange
+    // Partie gauche du demi-losange
     for (int i = 1; i <= cpt; i++) {
-        // Ajoutez des espaces pour aligner la partie gauche du demi-losange
         for (int j = 1; j <= cpt - i; j++) {
             out.print("&nbsp;");
         }
-        // Ajoutez les étoiles
         for (int k = 1; k <= i; k++) {
             out.print("*");
         }
-        out.println("<br>");
+        out.println();
+    }
+
+    // Partie droite du demi-losange
+    for (int i = cpt - 1; i >= 1; i--) {
+        for (int j = 1; j <= cpt - i; j++) {
+            out.print("&nbsp;");
+        }
+        for (int k = 1; k <= i; k++) {
+            out.print("*");
+        }
+        out.println();
     }
 %>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>

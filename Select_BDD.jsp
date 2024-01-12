@@ -166,6 +166,9 @@
 <h2>Exercice 4 : Ajouter un nouveau film</h2>
     <p>Créer un formulaire pour saisir un nouveau film dans la base de données</p>
     <form method="post" action="">
+        <label for="nouvelIdFilm">ID du nouveau film (optionnel) :</label>
+        <input type="text" name="nouvelIdFilm" id="nouvelIdFilm">
+        <br>
         <label for="nouveauTitre">Titre du nouveau film :</label>
         <input type="text" name="nouveauTitre" id="nouveauTitre">
         <br>
@@ -184,37 +187,51 @@
     if (request.getMethod().equalsIgnoreCase("POST")) {
         out.println("Formulaire soumis avec succès."); // Message de débogage
 
+        String nouvelIdFilmStr = request.getParameter("nouvelIdFilm");
         String nouveauTitre = request.getParameter("nouveauTitre");
         String nouvelleAnneeStr = request.getParameter("nouvelleAnnee");
 
+        out.println("Nouvel ID du film : " + nouvelIdFilmStr); // Message de débogage
         out.println("Nouveau Titre : " + nouveauTitre); // Message de débogage
         out.println("Nouvelle Année : " + nouvelleAnneeStr); // Message de débogage
 
         if (nouveauTitre != null && nouvelleAnneeStr != null) {
             try {
-                int nouvelleAnnee = Integer.parseInt(nouvelleAnneeStr);
+                int nouvelIdFilm = (nouvelIdFilmStr != null && !nouvelIdFilmStr.isEmpty()) ? Integer.parseInt(nouvelIdFilmStr) : -1;
 
                 Class.forName("org.mariadb.jdbc.Driver");
                 Connection conn4 = DriverManager.getConnection(url4, user4, password4);
-                String sql4 = "INSERT INTO Film (titre, année) VALUES (?, ?)";
-                try (PreparedStatement pstmt4 = conn4.prepareStatement(sql4, Statement.RETURN_GENERATED_KEYS)) {
-                    pstmt4.setString(1, nouveauTitre);
-                    pstmt4.setInt(2, nouvelleAnnee);
-                    int rowsInserted = pstmt4.executeUpdate();
 
-                    if (rowsInserted > 0) {
-                        // Récupérer les clés générées
-                        try (ResultSet generatedKeys = pstmt4.getGeneratedKeys()) {
-                            if (generatedKeys.next()) {
-                                int idFilm = generatedKeys.getInt(1);
-                                out.println("Le nouveau film a été ajouté avec succès. ID du film : " + idFilm);
-                            } else {
-                                out.println("Erreur lors de la récupération de l'ID du nouveau film.");
-                            }
+                // Vérifier si l'ID existe déjà
+                boolean idExiste = false;
+                if (nouvelIdFilm != -1) {
+                    String verifIdSql = "SELECT idFilm FROM Film WHERE idFilm = ?";
+                    try (PreparedStatement verifIdStmt = conn4.prepareStatement(verifIdSql)) {
+                        verifIdStmt.setInt(1, nouvelIdFilm);
+                        try (ResultSet rs = verifIdStmt.executeQuery()) {
+                            idExiste = rs.next();
                         }
-                    } else {
-                        out.println("Erreur lors de l'ajout du nouveau film.");
                     }
+                }
+
+                // Si l'ID n'existe pas, ou s'il est omis, procéder à l'insertion
+                if (!idExiste) {
+                    String sql4 = "INSERT INTO Film (idFilm, titre, année) VALUES (?, ?, ?)";
+                    try (PreparedStatement pstmt4 = conn4.prepareStatement(sql4)) {
+                        pstmt4.setInt(1, nouvelIdFilm);
+                        pstmt4.setString(2, nouveauTitre);
+                        pstmt4.setInt(3, Integer.parseInt(nouvelleAnneeStr));
+
+                        int rowsInserted = pstmt4.executeUpdate();
+
+                        if (rowsInserted > 0) {
+                            out.println("Le nouveau film a été ajouté avec succès.");
+                        } else {
+                            out.println("Erreur lors de l'ajout du nouveau film.");
+                        }
+                    }
+                } else {
+                    out.println("Erreur : L'ID du film existe déjà.");
                 }
 
                 conn4.close();

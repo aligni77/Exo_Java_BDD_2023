@@ -8,11 +8,15 @@
 <form action="#" method="post">
     <p>Saisir la valeur 1 : <input type="text" id="inputValeur" name="valeur1">
     <p>Saisir la valeur 2 : <input type="text" id="inputValeur" name="valeur2">
+    <p>Saisir la valeur 3 : <input type="text" id="inputValeur" name="valeur3">
+    <p>Saisir la valeur Paire/Impaire : <input type="text" id="inputValeur" name="valeur4">
     <p><input type="submit" value="Afficher">
 </form>
 <%-- Récupération des valeurs --%>
     <% String valeur1 = request.getParameter("valeur1"); %>
     <% String valeur2 = request.getParameter("valeur2"); %>
+    <% String valeur3 = request.getParameter("valeur3"); %>
+    <% String valeur4 = request.getParameter("valeur4"); %>
 
     <%-- Vérification de la condition entre les deux valeurs --%>
     <% if (valeur1 != null && valeur2 != null) { %>
@@ -31,21 +35,36 @@
    
     
 <h2>Exercice 1 : Comparaison 1</h2>
-<p>Ecrire un programme qui demande à l'utilisateur de saisir 3 valeurs (des chiffres),</br>
-A, B et C et dites nous si la valeur de C est comprise entre A et B.</br>
-Exemple :</br>
-A = 10</br>
-B = 20</br>
-C = 15</br>
-Oui C est compris entre A et B</p>
+
+<%-- Récupération des valeurs pour l'exercice 1 --%>
+<% String valeurA = request.getParameter("valeur1"); %>
+<% String valeurB = request.getParameter("valeur2"); %>
+<% String valeurC = request.getParameter("valeur3"); %>
+
+<%-- Vérification de la condition pour l'exercice 1 --%>
+<% if (valeurA != null && valeurB != null && valeurC != null) { %>
+    <%-- Conversion des valeurs en entiers pour la comparaison --%>
+    <% int intValeurA = Integer.parseInt(valeurA); %>
+    <% int intValeurB = Integer.parseInt(valeurB); %>
+    <% int intValeurC = Integer.parseInt(valeurC); %>
+
+    <%-- Condition if pour vérifier si C est compris entre A et B --%>
+    <%
+    if (intValeurC > intValeurA && intValeurC < intValeurB) {
+    %>
+        <p>Oui, C est compris entre A et B.</p>
+    <%
+    } else {
+    %>
+        <p>Non, C n'est pas compris entre A et B.</p>
+    <%
+    }
+    %>
+<% } %>
 
 <h2>Exercice 2 : Pair ou Impair ?</h2>
-<form action="#" method="post">
-    <p>Saisir un nombre : <input type="text" id="inputNombre" name="nombreValue"></p>
-    <input type="submit" value="Vérifier">
-</form>
 <%-- Récupération du nombre pour l'exercice 2 --%>
-<% String nombreValue = request.getParameter("nombreValue"); %>
+<% String nombreValue = request.getParameter("valeur4"); %>
 
 <%-- Vérification de la parité pour l'exercice 2 --%>
 <% if (nombreValue != null) { %>

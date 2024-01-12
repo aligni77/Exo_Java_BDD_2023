@@ -80,7 +80,7 @@
         for (int k = 1; k <= i; k++) {
             out.print("*");
         }
-        out.println();
+        out.println("<br>");
     }
 %>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>

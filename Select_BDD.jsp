@@ -216,7 +216,7 @@
 
                 // Si l'ID n'existe pas, ou s'il est omis, procéder à l'insertion
                 if (!idExiste) {
-                    String sql4 = "INSERT INTO Film (idFilm, titre, année) VALUES (?, ?, ?)";
+                    String sql4 = "INSERT INTO Film (idFilm, titre, année, genre) VALUES (?, ?, ?, ?)";
                     try (PreparedStatement pstmt4 = conn4.prepareStatement(sql4)) {
                         pstmt4.setInt(1, nouvelIdFilm);
                         pstmt4.setString(2, nouveauTitre);

@@ -8,6 +8,7 @@
 <form action="#" method="post">
     <p>Saisir la valeur 1 : <input type="text" id="inputValeur" name="valeur1">
     <p>Saisir la valeur 2 : <input type="text" id="inputValeur" name="valeur2">
+    <p>Saisir la valeur 3 : <input type="text" id="inputC" name="valeur3"></p>
     <p><input type="submit" value="Afficher">
 </form>
 <%-- Récupération des valeurs --%>
@@ -34,17 +35,10 @@
 <p>Ecrire un programme qui demande à l'utilisateur de saisir 3 valeurs (des chiffres),</br>
 A, B et C et dites nous si la valeur de C est comprise entre A et B.</br>
 
-<form action="#" method="post">
-    <p>Saisir la valeur A : <input type="text" id="inputA" name="valeurA"></p>
-    <p>Saisir la valeur B : <input type="text" id="inputB" name="valeurB"></p>
-    <p>Saisir la valeur C : <input type="text" id="inputC" name="valeurC"></p>
-    <input type="submit" value="Vérifier">
-</form>
-
 <%-- Récupération des valeurs pour l'exercice 1 --%>
-<% String valeurA = request.getParameter("valeurA"); %>
-<% String valeurB = request.getParameter("valeurB"); %>
-<% String valeurC = request.getParameter("valeurC"); %>
+<% String valeurA = request.getParameter("valeur1"); %>
+<% String valeurB = request.getParameter("valeur2"); %>
+<% String valeurC = request.getParameter("valeur3"); %>
 
 <%-- Vérification de la condition pour l'exercice 1 --%>
 <% if (valeurA != null && valeurB != null && valeurC != null) { %>

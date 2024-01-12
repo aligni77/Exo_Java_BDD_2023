@@ -63,9 +63,6 @@ A = 10</br>
 B = 20</br>
 C = 15</br>
 Oui C est compris entre A et B</p>
-
-<h2>Exercice 2 : Pair ou Impair ?</h2>
-
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>
 </html>

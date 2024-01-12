@@ -6,9 +6,9 @@
 <body bgcolor=white>
 <h1>Exercices sur les conditions</h1>
 <form action="#" method="post">
-    <p>Saisir la valeur 1 : <input type="text" id="inputValeur" name="valeur1">
-    <p>Saisir la valeur 2 : <input type="text" id="inputValeur" name="valeur2">
-    <p>Saisir la valeur 3 : <input type="text" id="inputValeur" name="valeur3">
+    <p>Saisir la valeur A : <input type="text" id="inputValeur" name="valeur1">
+    <p>Saisir la valeur B : <input type="text" id="inputValeur" name="valeur2">
+    <p>Saisir la valeur C : <input type="text" id="inputValeur" name="valeur3">
     <p>Saisir la valeur Paire/Impaire : <input type="text" id="inputValeur" name="valeur4">
     <p><input type="submit" value="Afficher">
 </form>

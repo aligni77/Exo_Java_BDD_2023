@@ -132,8 +132,8 @@
     }
     %>
 
-<h2>Exercice 4 : La valeur maximum</h2>
-<p>Créer un formulaire pour saisir un nouveau film dans la base de données</p>
+<h2>Exercice 4 : Ajouter un nouveau film</h2>
+    <p>Créer un formulaire pour saisir un nouveau film dans la base de données</p>
     <form method="post" action="">
         <label for="nouveauTitre">Titre du nouveau film :</label>
         <input type="text" name="nouveauTitre" id="nouveauTitre">

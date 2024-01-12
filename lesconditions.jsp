@@ -49,7 +49,11 @@ Oui C est compris entre A et B</p>
 
 <%-- Vérification de la parité pour l'exercice 2 --%>
 <% if (nombreValue != null) { %>
-
+    <%if (intNombre % 2 == 0) {%>
+            <p>Le nombre est pair.</p>
+    <%} else {%>
+        <p>Le nombre est impair.</p>
+    <%}%>
 <%}%>
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>

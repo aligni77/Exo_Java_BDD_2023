@@ -213,8 +213,8 @@
                     String verifIdSql = "SELECT idFilm FROM Film WHERE idFilm = ?";
                     try (PreparedStatement verifIdStmt = conn4.prepareStatement(verifIdSql)) {
                         verifIdStmt.setInt(1, nouvelIdFilm);
-                        try (ResultSet rs = verifIdStmt.executeQuery()) {
-                            idExiste = rs.next();
+                        try (ResultSet rs4 = verifIdStmt.executeQuery()) {
+                            idExiste = rs4.next();
                         }
                     }
                 }

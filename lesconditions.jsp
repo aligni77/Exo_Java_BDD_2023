@@ -72,12 +72,12 @@ Oui C est compris entre A et B</p>
 </form>
 
 <%-- Récupération du nombre pour l'exercice 2 --%>
-<% String nombre = request.getParameter("nombreaverif"); %>
+<% String stringNombre = request.getParameter("nombreaverif"); %>
 
 <%-- Vérification de la parité pour l'exercice 2 --%>
-<% if (nombreaverif != null) { %>
+<% if (stringNombre != null) { %>
     <%-- Conversion de la valeur en entier --%>
-    <% int intNombre = Integer.parseInt(nombreaverif); %>
+    <% int intNombre = Integer.parseInt(stringNombre); %>
 
     <%-- Condition if pour vérifier la parité --%>
     <%

@@ -137,8 +137,8 @@
 <h2>Exercice 7 : La table de multiplication</h2>
 <p>Ecrire le code afin de créser une table de multiplication</p>
 <%
-    // Boucle for pour générer la table de multiplication
-    for (int i = 1; i <= 10; i++) {
+    // Boucle for pour générer la table de multiplication jusqu'à la valeur saisie
+    for (int i = 1; i <= cpt; i++) {
         out.println(cpt + " x " + i + " = " + (cpt * i) + "<br>");
     }
 %>

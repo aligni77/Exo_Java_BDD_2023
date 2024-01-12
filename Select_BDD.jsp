@@ -197,7 +197,7 @@
                 Class.forName("org.mariadb.jdbc.Driver");
                 Connection conn4 = DriverManager.getConnection(url4, user4, password4);
                 String sql4 = "INSERT INTO Film (titre, année) VALUES (?, ?)";
-                
+                out.println("Requête SQL : " + sql4); // Message de débogage
                 try (PreparedStatement pstmt4 = conn4.prepareStatement(sql4)) {
                     pstmt4.setString(1, nouveauTitre);
                     pstmt4.setInt(2, nouvelleAnnee);

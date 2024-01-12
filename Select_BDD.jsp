@@ -42,7 +42,7 @@
 <h2>Exercice 1 : Les films entre 2000 et 2015</h2>
 <p>Extraire les films dont l'année est supérieur à l'année 2000 et inférieur à 2015.</p>
 <% 
-    try (Connection conn = DriverManager.getConnection(url, user, password)) {
+    try (conn) {
         String sql = "SELECT idFilm, titre, année FROM Film WHERE année > 2000 AND année < 2015";
         try (PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {

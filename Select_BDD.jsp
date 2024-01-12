@@ -223,7 +223,7 @@
                         pstmt4.setString(4, nouveauGenre);
 
                         int rowsInserted = pstmt4.executeUpdate();
-
+                        out.println("Film ajouté, veuillez rafraichir la page");
                         if (rowsInserted > 0) {
                             out.println("Le nouveau film a été ajouté avec succès.");
                         } else {
@@ -231,7 +231,6 @@
                         }
                     }
                 } else {
-                    out.println("Erreur : L'ID du film existe déjà.");
                 }
 
                 conn4.close();
@@ -240,7 +239,6 @@
                 e.printStackTrace();
             }
         }
-        out.println("Film ajouté, veuillez rafraichir la page");
     }
     %>
 

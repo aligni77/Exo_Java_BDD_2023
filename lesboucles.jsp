@@ -74,7 +74,7 @@
     for (int i = 1; i <= cpt; i++) {
         // Ajoutez des espaces pour aligner le triangle à droite
         for (int j = 1; j <= cpt - i; j++) {
-            out.print(" ");
+            out.print("&nbsp;");
         }
         // Ajoutez les étoiles
         for (int k = 1; k <= i; k++) {

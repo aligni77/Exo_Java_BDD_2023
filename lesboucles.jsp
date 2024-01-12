@@ -31,7 +31,7 @@
             // Boucle for pour générer le carré d'étoiles
             for (int i = 0; i < cpt; i++) {
                 for (int j = 0; j < cpt; j++) {
-                    out.print("* ");
+                    out.print("*");
                 }
                 out.println("<br>");
             }

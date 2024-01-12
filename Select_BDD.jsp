@@ -211,10 +211,11 @@
                 }
 
                 conn4.close();
-            } catch (NumberFormatException | ClassNotFoundException | SQLException e) {
-                // Gérer les exceptions
-                e.printStackTrace();
-            }
+                } catch (NumberFormatException | ClassNotFoundException | SQLException e) {
+                    // Gérer les exceptions
+                    e.printStackTrace();
+                    out.println("Erreur SQL : " + e.getMessage()); // Afficher le détail de l'erreur SQL
+                }
         }
     }
     %>

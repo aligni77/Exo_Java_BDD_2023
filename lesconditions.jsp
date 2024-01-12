@@ -66,17 +66,17 @@ Oui C est compris entre A et B</p>
 
 <h2>Exercice 2 : Pair ou Impair ?</h2>
 <form action="#" method="post">
-    <p>Saisir un nombre : <input type="text" id="inputNombre" name="nombre"></p>
+    <p>Saisir un nombre : <input type="text" id="inputNombre" name="nombreValue"></p>
     <input type="submit" value="Vérifier">
 </form>
 
 <%-- Récupération du nombre pour l'exercice 2 --%>
-<% String nombre = request.getParameter("nombre"); %>
+<% String nombreValue = request.getParameter("nombreValue"); %>
 
 <%-- Vérification de la parité pour l'exercice 2 --%>
-<% if (nombre != null) { %>
+<% if (nombreValue != null) { %>
     <%-- Conversion de la valeur en entier --%>
-    <% int intNombre = Integer.parseInt(nombre); %>
+    <% int intNombre = Integer.parseInt(nombreValue); %>
 
     <%-- Condition if pour vérifier la parité --%>
     <%

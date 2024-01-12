@@ -112,11 +112,11 @@
     for (int i = 1; i <= cpt; i++) {
         // Ajoutez des espaces pour aligner le losange à droite
         for (int j = 1; j <= cpt - i; j++) {
-            out.print("&nbsp;&nbsp;");
+            out.print("&nbsp;&nbsp;&nbsp;");
         }
         // Ajoutez les étoiles
         for (int k = 1; k <= i; k++) {
-            out.print("*");
+            out.print("*&nbsp;");
         }
         out.println();
     }
@@ -125,11 +125,11 @@
     for (int i = cpt - 1; i >= 1; i--) {
         // Ajoutez des espaces pour aligner le losange à droite
         for (int j = 1; j <= cpt - i; j++) {
-            out.print("&nbsp;&nbsp;");
+            out.print("&nbsp;&nbsp;&nbsp;");
         }
         // Ajoutez les étoiles
         for (int k = 1; k <= i; k++) {
-            out.print("*");
+            out.print("*&nbsp;");
         }
         out.println();
     }

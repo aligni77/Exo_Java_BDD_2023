@@ -92,7 +92,6 @@ Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'ut
    }
 %>
 <p>La valeur la plus proche de 0 est : <%= plusProcheDeZero2 %></p>
-<p>En cas d'égalité entre un chiffre positif et négatif, affichez le chiffre positif.</p>
 
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>

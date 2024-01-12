@@ -221,6 +221,7 @@
                         pstmt4.setInt(1, nouvelIdFilm);
                         pstmt4.setString(2, nouveauTitre);
                         pstmt4.setInt(3, Integer.parseInt(nouvelleAnneeStr));
+                        pstmt4.setString(4, "Réel");
 
                         int rowsInserted = pstmt4.executeUpdate();
 

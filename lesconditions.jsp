@@ -6,28 +6,28 @@
 <body bgcolor=white>
 <h1>Exercices sur les conditions</h1>
 <form action="#" method="post">
-    <p>Saisir la valeur 1 : <input type="text" id="inputValeur" name="valeur1">
-    <p>Saisir la valeur 2 : <input type="text" id="inputValeur" name="valeur2">
-    <p>Saisir la valeur 3 : <input type="text" id="inputC" name="valeur3"></p>
+    <p>Saisir la valeur A : <input type="text" id="inputValeur" name="valeurA">
+    <p>Saisir la valeur B : <input type="text" id="inputValeur" name="valeurB">
+    <p>Saisir la valeur C : <input type="text" id="inputC" name="valeurC"></p>
     <p><input type="submit" value="Afficher">
 </form>
 <%-- Récupération des valeurs --%>
-    <% String valeur1 = request.getParameter("valeur1"); %>
-    <% String valeur2 = request.getParameter("valeur2"); %>
+    <% String valeurA = request.getParameter("valeurA"); %>
+    <% String valeurB = request.getParameter("valeurB"); %>
 
     <%-- Vérification de la condition entre les deux valeurs --%>
-    <% if (valeur1 != null && valeur2 != null) { %>
+    <% if (valeurA != null && valeurB != null) { %>
         <%-- Conversion des valeurs en entiers pour la comparaison --%>
-        <% int intValeur1 = Integer.parseInt(valeur1); %>
-        <% int intValeur2 = Integer.parseInt(valeur2); %>
+        <% int intValeurA = Integer.parseInt(valeurA); %>
+        <% int intValeurB = Integer.parseInt(valeurB); %>
         
         <%-- Condition if pour comparer les valeurs --%>
-        <% if (intValeur1 > intValeur2) { %>
-            <p>Valeur 1 est supérieure à Valeur 2.</p>
-        <% } else if (intValeur1 < intValeur2) { %>
-            <p>Valeur 1 est inférieure à Valeur 2.</p>
+        <% if (intValeurA > intValeurB) { %>
+            <p>Valeur A est supérieure à Valeur B.</p>
+        <% } else if (intValeurA < intValeurB) { %>
+            <p>Valeur A est inférieure à Valeur B.</p>
         <% } else { %>
-            <p>Valeur 1 est égale à Valeur 2.</p>
+            <p>Valeur A est égale à Valeur B.</p>
         <% } %>
    
     
@@ -36,9 +36,9 @@
 A, B et C et dites nous si la valeur de C est comprise entre A et B.</br>
 
 <%-- Récupération des valeurs pour l'exercice 1 --%>
-<% String valeurA = request.getParameter("valeur1"); %>
-<% String valeurB = request.getParameter("valeur2"); %>
-<% String valeurC = request.getParameter("valeur3"); %>
+<% String valeurA = request.getParameter("valeurA"); %>
+<% String valeurB = request.getParameter("valeurB"); %>
+<% String valeurC = request.getParameter("valeurC"); %>
 
 <%-- Vérification de la condition pour l'exercice 1 --%>
 <% if (valeurA != null && valeurB != null && valeurC != null) { %>
@@ -49,11 +49,12 @@ A, B et C et dites nous si la valeur de C est comprise entre A et B.</br>
 
     <%-- Condition if pour vérifier si C est compris entre A et B --%>
     <%
-    if (intValeurC > intValeurA && intValeurC < intValeurB) {
+    if (intValeurC >= intValeurA && intValeurC <= intValeurB) {
     %>
         <p>Oui, C est compris entre A et B.</p>
     <%
-    } else {
+    } 
+    else {
     %>
         <p>Non, C n'est pas compris entre A et B.</p>
     <%

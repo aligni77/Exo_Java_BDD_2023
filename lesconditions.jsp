@@ -44,6 +44,12 @@ Oui C est compris entre A et B</p>
     <p>Saisir un nombre : <input type="text" id="inputNombre" name="nombreValue"></p>
     <input type="submit" value="Vérifier">
 </form>
+<%-- Récupération du nombre pour l'exercice 2 --%>
+<% String nombreValue = request.getParameter("nombreValue"); %>
+
+<%-- Vérification de la parité pour l'exercice 2 --%>
+<% if (nombreValue != null) { %>
+%>
 
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>

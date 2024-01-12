@@ -78,20 +78,18 @@ Oui C est compris entre A et B</p>
 <% if (stringNombre != null) { %>
     <%-- Conversion de la valeur en entier --%>
     <% int intNombre = Integer.parseInt(stringNombre); %>
-
-    <%-- Condition if pour vérifier la parité --%>
+    <%-- Condition if pour vérifier si C est compris entre A et B --%>
     <%
-    if (intNombre % 2 == 0) {
+    if (integerValeurC >= integerValeurA && integerValeurC <= integerValeurB) {
     %>
-        <p>Le nombre est pair.</p>
+        <p>Oui, C est compris entre A et B.</p>
     <%
     } else {
     %>
-        <p>Le nombre est impair.</p>
+        <p>Non, C n'est pas compris entre A et B.</p>
     <%
     }
     %>
-
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>

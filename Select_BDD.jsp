@@ -188,17 +188,11 @@
 
     // Vérifier si le formulaire a été soumis
     if (request.getMethod().equalsIgnoreCase("POST")) {
-        out.println("Formulaire soumis avec succès."); // Message de débogage
 
         String nouvelIdFilmStr = request.getParameter("nouvelIdFilm");
         String nouveauTitre = request.getParameter("nouveauTitre");
         String nouvelleAnneeStr = request.getParameter("nouvelleAnnee");
         String nouveauGenre = request.getParameter("nouveauGenre");
-
-        out.println("Nouvel ID du film : " + nouvelIdFilmStr); // Message de débogage
-        out.println("Nouveau Titre : " + nouveauTitre); // Message de débogage
-        out.println("Nouvelle Année : " + nouvelleAnneeStr); // Message de débogage
-        out.println("Nouveau Genre : " + nouveauGenre); // Message de débogage
 
         if (nouveauTitre != null && nouvelleAnneeStr != null && nouveauGenre != null) {
             try {
@@ -244,9 +238,9 @@
             } catch (NumberFormatException | ClassNotFoundException | SQLException e) {
                 // Gérer les exceptions
                 e.printStackTrace();
-                out.println("Erreur SQL : " + e.getMessage()); // Afficher le détail de l'erreur SQL
             }
         }
+        out.println("Film ajouté, veuillez rafraichir la page");
     }
     %>
 

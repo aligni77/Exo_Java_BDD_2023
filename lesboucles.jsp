@@ -41,6 +41,15 @@
 
 <h2>Exercice 2 : Triangle rectangle gauche</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
+<%
+    // Boucle for pour générer le triangle rectangle aligné sur la gauche
+    for (int i = 1; i <= cpt; i++) {
+        for (int j = 1; j <= i; j++) {
+            out.print("*");
+        }
+        out.println("<br>");
+    }
+%>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>*</br>**</br>***</br>****</br>*****</p>
 

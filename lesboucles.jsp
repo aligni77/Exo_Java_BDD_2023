@@ -32,10 +32,6 @@
                 <%= "*" %>
             <% } %>
         </p>
-
-        <h2>Exercice 1 : Le carré d'étoiles</h2>
-        <p>Ecrire le code afin de produire un carré d'étoile</p>
-        <p>Exemple si l'utilisateur saisie le valeur 5</p>
         <%
             // Boucle for pour générer le carré d'étoiles
             for (int i = 0; i < cpt; i++) {

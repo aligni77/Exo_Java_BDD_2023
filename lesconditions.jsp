@@ -26,11 +26,11 @@
         
         <%-- Condition if pour comparer les valeurs --%>
         <% if (intValeur1 > intValeur2) { %>
-            <p>Valeur 1 est supérieure à Valeur 2.</p>
+            <p>Valeur A est supérieure à Valeur B.</p>
         <% } else if (intValeur1 < intValeur2) { %>
-            <p>Valeur 1 est inférieure à Valeur 2.</p>
+            <p>Valeur A est inférieure à Valeur B.</p>
         <% } else { %>
-            <p>Valeur 1 est égale à Valeur 2.</p>
+            <p>Valeur A est égale à Valeur B.</p>
         <% } %>
    
     

@@ -140,6 +140,7 @@
     // Boucle for pour générer la table de multiplication jusqu'à la valeur saisie
     for (int i = 1; i <= cpt; i++) {
         out.println(cpt + " x " + i + " = " + (cpt * i) + "<br>");
+        out.println("<br>"); // Ajout d'un saut de ligne après chaque multiplication
     }
 %>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>

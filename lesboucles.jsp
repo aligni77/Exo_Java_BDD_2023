@@ -55,27 +55,84 @@
 
 <h2>Exercice 3 : Triangle rectangle inversé</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
+<%
+    // Boucle for pour générer le triangle rectangle inversé aligné sur la gauche
+    for (int i = cpt; i >= 1; i--) {
+        for (int j = 1; j <= i; j++) {
+            out.print("*");
+        }
+        out.println("<br>");
+    }
+%>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>*****</br>****</br>***</br>**</br>*</p>
 
 <h2>Exercice 4 : Triangle rectangle 2</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
+<%
+    // Boucle for pour générer le triangle rectangle aligné sur la droite
+    for (int i = 1; i <= cpt; i++) {
+        // Ajoutez des espaces pour aligner le triangle sur la droite
+        for (int j = 1; j <= cpt - i; j++) {
+            out.print("&nbsp;");
+        }
+        // Ajoutez les étoiles
+        for (int k = 1; k <= i; k++) {
+            out.print("*");
+        }
+        out.println("<br>");
+    }
+%>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;***</br>&nbsp;&nbsp;****</br>*****</p>
 
 <h2>Exercice 5 : Triangle isocele</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
+<%
+    // Boucle for pour générer le triangle isocèle aligné sur la droite
+    for (int i = 1; i <= cpt; i++) {
+        // Ajoutez des espaces pour aligner le triangle sur la droite
+        for (int j = 1; j <= cpt - i; j++) {
+            out.print("&nbsp;");
+        }
+        // Ajoutez les étoiles
+        for (int k = 1; k <= 2 * i - 1; k++) {
+            out.print("*");
+        }
+        out.println("<br>");
+    }
+%>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;***</br>&nbsp;****</br>*****</p>
 
 <h2>Exercice 6 : Le demi losange</h2>
 <p>Ecrire le code afin de produire un losange</p>
+<%
+    // Boucle for pour générer la partie gauche du demi-losange
+    for (int i = 1; i <= cpt; i++) {
+        // Ajoutez des espaces pour aligner la partie gauche du demi-losange
+        for (int j = 1; j <= cpt - i; j++) {
+            out.print("&nbsp;");
+        }
+        // Ajoutez les étoiles
+        for (int k = 1; k <= i; k++) {
+            out.print("*");
+        }
+        out.println("<br>");
+    }
+%>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;***</br>&nbsp;&nbsp;****</br>*****</p>
 <p>*****</br>&nbsp;&nbsp;****</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</p>
 
 <h2>Exercice 7 : La table de multiplication</h2>
 <p>Ecrire le code afin de créser une table de multiplication</p>
+<%
+    // Boucle for pour générer la table de multiplication
+    for (int i = 1; i <= 10; i++) {
+        out.println(cpt + " x " + i + " = " + (cpt * i) + "<br>");
+    }
+%>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
 <p>5 x 1 = 5</p>
 <p>5 x 2 = 10</p>

@@ -49,6 +49,8 @@ Oui C est compris entre A et B</p>
 
 <%-- Vérification de la parité pour l'exercice 2 --%>
 <% if (nombreValue != null) { %>
+    <%-- Conversion de la valeur en entier --%>
+    <% int intNombre = Integer.parseInt(nombreValue); %>
     <%if (intNombre % 2 == 0) {%>
             <p>Le nombre est pair.</p>
     <%} else {%>

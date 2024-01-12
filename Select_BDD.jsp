@@ -15,7 +15,9 @@
     String user = "mysql";
     String password = "mysql";
 
-    try (Connection conn = DriverManager.getConnection(url, user, password)) {
+    try {
+        Class.forName("org.mariadb.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(url, user, password);
         String sql = "SELECT idFilm, titre, année FROM Film WHERE année > 2000 AND année < 2015";
         try (PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
@@ -28,7 +30,8 @@
                 out.println("id : " + colonne1 + ", titre : " + colonne2 + ", année : " + colonne3 + "</br>");
             }
         }
-    } catch (SQLException e) {
+        conn.close();
+    } catch (ClassNotFoundException | SQLException e) {
         // Gérer les exceptions
         e.printStackTrace();
     }

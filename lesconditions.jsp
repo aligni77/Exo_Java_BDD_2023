@@ -50,7 +50,7 @@ Oui C est compris entre A et B</p>
 <%-- Vérification de la parité pour l'exercice 2 --%>
 <% if (nombreValue != null) { %>
 
-
+<%}%>
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>

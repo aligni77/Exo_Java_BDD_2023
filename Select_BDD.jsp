@@ -37,15 +37,15 @@
     }
     %>
 
-    <h2>Exercice 2 : Année de recherche</h2>
+<h2>Exercice 2 : Année de recherche</h2>
     <p>Créer un champ de saisie permettant à l'utilisateur de choisir l'année de sa recherche.</p>
     <form method="get" action="">
         <label for="anneeRecherche">Année de recherche :</label>
         <input type="text" name="anneeRecherche" id="anneeRecherche" value="<%= anneeRecherche %>">
         <input type="submit" value="Rechercher">
-     </form>
+    </form>
 
-     <% 
+    <% 
     String url2 = "jdbc:mariadb://localhost:3306/films";
     String user2 = "mysql";
     String password2 = "mysql";

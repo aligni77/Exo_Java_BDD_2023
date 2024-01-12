@@ -79,17 +79,11 @@ Oui C est compris entre A et B</p>
     <% int intNombre = Integer.parseInt(nombreValue); %>
 
     <%-- Condition if pour vérifier la parité --%>
-    <%
-    if (intNombre % 2 == 0) {
-    %>
-        <p>Le nombre est pair.</p>
-    <%
-    } else {
-    %>
-        <p>Le nombre est impair.</p>
-    <%
-    }
-    %>
+    <% if (intNombre % 2 == 0) { %>
+        <p>Le nombre <%= intNombre %> est pair.</p>
+    <% } else { %>
+        <p>Le nombre <%= intNombre %> est impair.</p>
+    <% } %>
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>

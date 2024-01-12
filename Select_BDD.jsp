@@ -11,34 +11,74 @@
     <p>Extraire les films dont l'année est supérieure à l'année 2000 et inférieure à 2015.</p>
     
     <% 
-    String url = "jdbc:mariadb://localhost:3306/films";
-    String user = "mysql";
-    String password = "mysql";
+    String url1 = "jdbc:mariadb://localhost:3306/films";
+    String user1 = "mysql";
+    String password1 = "mysql";
 
     try {
         Class.forName("org.mariadb.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(url, user, password);
-        String sql = "SELECT idFilm, titre, année FROM Film WHERE année > 2000 AND année < 2015";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql);
-             ResultSet rs = pstmt.executeQuery()) {
+        Connection conn1 = DriverManager.getConnection(url1, user1, password1);
+        String sql1 = "SELECT idFilm, titre, année FROM Film WHERE année > 2000 AND année < 2015";
+        try (PreparedStatement pstmt1 = conn1.prepareStatement(sql1);
+             ResultSet rs1 = pstmt1.executeQuery()) {
 
-            while (rs.next()) {
-                String colonne1 = rs.getString("idFilm");
-                String colonne2 = rs.getString("titre");
-                int colonne3 = rs.getInt("année");
+            while (rs1.next()) {
+                String colonne1 = rs1.getString("idFilm");
+                String colonne2 = rs1.getString("titre");
+                int colonne3 = rs1.getInt("année");
 
                 out.println("id : " + colonne1 + ", titre : " + colonne2 + ", année : " + colonne3 + "</br>");
             }
         }
-        conn.close();
+        conn1.close();
     } catch (ClassNotFoundException | SQLException e) {
         // Gérer les exceptions
         e.printStackTrace();
     }
     %>
 
-<h2>Exercice 2 : Année de recherche</h2>
-<p>Créer un champ de saisie permettant à l'utilisateur de choisir l'année de sa recherche.</p>
+    <h2>Exercice 2 : Année de recherche</h2>
+    <p>Créer un champ de saisie permettant à l'utilisateur de choisir l'année de sa recherche.</p>
+    <form method="get" action="">
+        <label for="anneeRecherche">Année de recherche :</label>
+        <input type="text" name="anneeRecherche" id="anneeRecherche" value="<%= anneeRecherche %>">
+        <input type="submit" value="Rechercher">
+     </form>
+
+     <% 
+    String url2 = "jdbc:mariadb://localhost:3306/films";
+    String user2 = "mysql";
+    String password2 = "mysql";
+
+    int anneeRecherche = 0; // Initialiser la variable pour la recherche d'année
+
+    // Vérifier si le formulaire a été soumis
+    if (request.getParameter("anneeRecherche") != null) {
+        anneeRecherche = Integer.parseInt(request.getParameter("anneeRecherche"));
+    }
+
+    try {
+        Class.forName("org.mariadb.jdbc.Driver");
+        Connection conn2 = DriverManager.getConnection(url2, user2, password2);
+        String sql2 = "SELECT idFilm, titre, année FROM Film WHERE année = ?";
+        try (PreparedStatement pstmt2 = conn2.prepareStatement(sql2)) {
+            pstmt2.setInt(1, anneeRecherche);
+            try (ResultSet rs2 = pstmt2.executeQuery()) {
+                while (rs2.next()) {
+                    String colonne1 = rs2.getString("idFilm");
+                    String colonne2 = rs2.getString("titre");
+                    int colonne3 = rs2.getInt("année");
+
+                    out.println("id : " + colonne1 + ", titre : " + colonne2 + ", année : " + colonne3 + "</br>");
+                }
+            }
+        }
+        conn2.close();
+    } catch (ClassNotFoundException | SQLException e) {
+        // Gérer les exceptions
+        e.printStackTrace();
+    }
+    %>
 
 <h2>Exercice 3 : Modification du titre du film</h2>
 <p>Créer un fichier permettant de modifier le titre d'un film sur la base de son ID (ID choisi par l'utilisateur)</p>

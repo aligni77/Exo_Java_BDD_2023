@@ -197,14 +197,19 @@
                 Class.forName("org.mariadb.jdbc.Driver");
                 Connection conn4 = DriverManager.getConnection(url4, user4, password4);
                 String sql4 = "INSERT INTO Film (titre, année) VALUES (?, ?)";
-                out.println("Requête SQL : " + sql4); // Message de débogage
-                try (PreparedStatement pstmt4 = conn4.prepareStatement(sql4)) {
+                try (PreparedStatement pstmt4 = conn4.prepareStatement(sql4, Statement.RETURN_GENERATED_KEYS)) {
                     pstmt4.setString(1, nouveauTitre);
                     pstmt4.setInt(2, nouvelleAnnee);
                     int rowsInserted = pstmt4.executeUpdate();
-                    
+
                     if (rowsInserted > 0) {
-                        out.println("Le nouveau film a été ajouté avec succès.");
+                        ResultSet generatedKeys = pstmt4.getGeneratedKeys();
+                        if (generatedKeys.next()) {
+                            int idFilm = generatedKeys.getInt(1);
+                            out.println("Le nouveau film a été ajouté avec succès. ID du film : " + idFilm);
+                        } else {
+                            out.println("Erreur lors de la récupération de l'ID du nouveau film.");
+                        }
                     } else {
                         out.println("Erreur lors de l'ajout du nouveau film.");
                     }

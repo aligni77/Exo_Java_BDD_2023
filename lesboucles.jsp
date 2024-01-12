@@ -118,7 +118,7 @@
         for (int k = 1; k <= i; k++) {
             out.print("*");
         }
-        out.println();
+        out.println("<br>");
     }
 
     // Ligne vide entre les deux triangles
@@ -134,7 +134,7 @@
         for (int k = i; k <= cpt; k++) {
             out.print("*");
         }
-        out.println();
+        out.println("<br>");
     }
 %>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>

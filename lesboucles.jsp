@@ -122,7 +122,7 @@
     }
 
     // Ligne vide entre les deux triangles
-    out.println();
+    out.println("<br>");
 
     // Partie inférieure du losange
     for (int i = 1; i <= cpt; i++) {

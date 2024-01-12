@@ -43,9 +43,9 @@
 <p>Extraire les films dont l'année est supérieur à l'année 2000 et inférieur à 2015.</p>
 <% 
     try (conn) {
-        String sql = "SELECT idFilm, titre, année FROM Film WHERE année > 2000 AND année < 2015";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql);
-             ResultSet rs = pstmt.executeQuery()) {
+        String sqlRequestEx1 = "SELECT idFilm, titre, année FROM Film WHERE année > 2000 AND année < 2015";
+        try (pstmt;
+             rs) {
 
             while (rs.next()) {
                 String colonne1 = rs.getString("idFilm");

@@ -112,24 +112,27 @@
     for (int i = 1; i <= cpt; i++) {
         // Ajoutez des espaces pour aligner le losange à droite
         for (int j = 1; j <= cpt - i; j++) {
-            out.print("&nbsp;&nbsp;&nbsp;");
+            out.print("&nbsp;&nbsp;");
         }
         // Ajoutez les étoiles
         for (int k = 1; k <= i; k++) {
-            out.print("*&nbsp;");
+            out.print("*");
         }
         out.println();
     }
 
+    // Ligne vide entre les deux triangles
+    out.println();
+
     // Partie inférieure du losange
-    for (int i = cpt - 1; i >= 1; i--) {
+    for (int i = 1; i <= cpt; i++) {
         // Ajoutez des espaces pour aligner le losange à droite
-        for (int j = 1; j <= cpt - i; j++) {
-            out.print("&nbsp;&nbsp;&nbsp;");
+        for (int j = 1; j <= i - 1; j++) {
+            out.print("&nbsp;&nbsp;");
         }
         // Ajoutez les étoiles
-        for (int k = 1; k <= i; k++) {
-            out.print("*&nbsp;");
+        for (int k = i; k <= cpt; k++) {
+            out.print("*");
         }
         out.println();
     }

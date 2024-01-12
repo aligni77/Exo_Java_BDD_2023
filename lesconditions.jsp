@@ -73,18 +73,6 @@ Oui C est compris entre A et B</p>
 <%-- Récupération du nombre pour l'exercice 2 --%>
 <% String nombreValue = request.getParameter("nombreValue"); %>
 
-<%-- Vérification de la parité pour l'exercice 2 --%>
-<% if (nombreValue != null) { %>
-    <%-- Conversion de la valeur en entier --%>
-    <% int intNombre = Integer.parseInt(nombreValue); %>
-
-    <%-- Condition if pour vérifier la parité --%>
-    <% if (intNombre % 2 == 0) { %>
-        <p>Le nombre <%= intNombre %> est pair.</p>
-    <% } else { %>
-        <p>Le nombre <%= intNombre %> est impair.</p>
-    <% } %>
-<% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>
 </html>

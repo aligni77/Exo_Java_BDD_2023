@@ -65,13 +65,6 @@ C = 15</br>
 Oui C est compris entre A et B</p>
 
 <h2>Exercice 2 : Pair ou Impair ?</h2>
-<form action="#" method="post">
-    <p>Saisir un nombre : <input type="text" id="inputNombre" name="nombreValue"></p>
-    <input type="submit" value="Vérifier">
-</form>
-
-<%-- Récupération du nombre pour l'exercice 2 --%>
-<% String nombreValue = request.getParameter("nombreValue"); %>
 
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>

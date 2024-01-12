@@ -41,7 +41,7 @@
        }
    }
 %>
-<p>Le nombre de lettres 'e' dans votre chaîne est : <%= countE %></p>
+<p>Voici le nombre de lettre 'e' dans votre chaîne est : <%= countE %></p>
 
 <h2>Exercice 2 : Affichage verticale</h2>
 <p>Ecrire le programme pour afficher le texte en vertical</br></p>

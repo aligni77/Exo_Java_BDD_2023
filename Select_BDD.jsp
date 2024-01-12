@@ -182,8 +182,13 @@
 
     // Vérifier si le formulaire a été soumis
     if (request.getMethod().equalsIgnoreCase("POST")) {
+        out.println("Formulaire soumis avec succès."); // Message de débogage
+
         String nouveauTitre = request.getParameter("nouveauTitre");
         String nouvelleAnneeStr = request.getParameter("nouvelleAnnee");
+
+        out.println("Nouveau Titre : " + nouveauTitre); // Message de débogage
+        out.println("Nouvelle Année : " + nouvelleAnneeStr); // Message de débogage
 
         if (nouveauTitre != null && nouvelleAnneeStr != null) {
             try {

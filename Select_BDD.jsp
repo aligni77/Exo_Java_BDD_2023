@@ -39,6 +39,14 @@
 
 <h2>Exercice 2 : Année de recherche</h2>
     <p>Créer un champ de saisie permettant à l'utilisateur de choisir l'année de sa recherche.</p>
+    <%
+    int anneeRecherche = 0; // Initialiser la variable pour la recherche d'année
+
+    // Vérifier si le formulaire a été soumis
+    if (request.getParameter("anneeRecherche") != null) {
+        anneeRecherche = Integer.parseInt(request.getParameter("anneeRecherche"));
+    }
+    %>
     <form method="get" action="">
         <label for="anneeRecherche">Année de recherche :</label>
         <input type="text" name="anneeRecherche" id="anneeRecherche" value="<%= anneeRecherche %>">
@@ -49,13 +57,6 @@
     String url2 = "jdbc:mariadb://localhost:3306/films";
     String user2 = "mysql";
     String password2 = "mysql";
-
-    int anneeRecherche = 0; // Initialiser la variable pour la recherche d'année
-
-    // Vérifier si le formulaire a été soumis
-    if (request.getParameter("anneeRecherche") != null) {
-        anneeRecherche = Integer.parseInt(request.getParameter("anneeRecherche"));
-    }
 
     try {
         Class.forName("org.mariadb.jdbc.Driver");

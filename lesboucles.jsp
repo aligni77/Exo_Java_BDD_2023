@@ -70,17 +70,17 @@
 <h2>Exercice 4 : Triangle rectangle 2</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
 <%
-    // Boucle for pour générer le triangle rectangle aligné sur la droite
+    // Boucle for pour générer le triangle rectangle isocèle aligné à droite
     for (int i = 1; i <= cpt; i++) {
         // Ajoutez des espaces pour aligner le triangle sur la droite
         for (int j = 1; j <= cpt - i; j++) {
-            out.print("&nbsp;");
+            out.print(" ");
         }
         // Ajoutez les étoiles
         for (int k = 1; k <= i; k++) {
             out.print("*");
         }
-        out.println("<br>");
+        out.println();
     }
 %>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
@@ -89,14 +89,14 @@
 <h2>Exercice 5 : Triangle isocele</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
 <%
-    // Boucle for pour générer le triangle isocèle aligné sur la droite
+    // Boucle for pour générer le triangle rectangle aligné sur la droite
     for (int i = 1; i <= cpt; i++) {
         // Ajoutez des espaces pour aligner le triangle sur la droite
         for (int j = 1; j <= cpt - i; j++) {
             out.print("&nbsp;");
         }
         // Ajoutez les étoiles
-        for (int k = 1; k <= 2 * i - 1; k++) {
+        for (int k = 1; k <= i; k++) {
             out.print("*");
         }
         out.println("<br>");

@@ -14,6 +14,7 @@
 <%-- Récupération des valeurs --%>
     <% String valeurA = request.getParameter("valeurA"); %>
     <% String valeurB = request.getParameter("valeurB"); %>
+    <% String valeurC = request.getParameter("valeurC"); %>
 
     <%-- Vérification de la condition entre les deux valeurs --%>
     <% if (valeurA != null && valeurB != null) { %>
@@ -34,11 +35,6 @@
 <h2>Exercice 1 : Comparaison 1</h2>
 <p>Ecrire un programme qui demande à l'utilisateur de saisir 3 valeurs (des chiffres),</br>
 A, B et C et dites nous si la valeur de C est comprise entre A et B.</br>
-
-<%-- Récupération des valeurs pour l'exercice 1 --%>
-<% String valeurA = request.getParameter("valeurA"); %>
-<% String valeurB = request.getParameter("valeurB"); %>
-<% String valeurC = request.getParameter("valeurC"); %>
 
 <%-- Vérification de la condition pour l'exercice 1 --%>
 <% if (valeurA != null && valeurB != null && valeurC != null) { %>

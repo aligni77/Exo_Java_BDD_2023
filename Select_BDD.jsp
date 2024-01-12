@@ -134,6 +134,54 @@
 
 <h2>Exercice 4 : La valeur maximum</h2>
 <p>Créer un formulaire pour saisir un nouveau film dans la base de données</p>
+    <form method="post" action="">
+        <label for="nouveauTitre">Titre du nouveau film :</label>
+        <input type="text" name="nouveauTitre" id="nouveauTitre">
+        <br>
+        <label for="nouvelleAnnee">Année du nouveau film :</label>
+        <input type="text" name="nouvelleAnnee" id="nouvelleAnnee">
+        <br>
+        <input type="submit" value="Ajouter le film">
+    </form>
+
+    <% 
+    String url4 = "jdbc:mariadb://localhost:3306/films";
+    String user4 = "mysql";
+    String password4 = "mysql";
+
+    // Vérifier si le formulaire a été soumis
+    if (request.getMethod().equalsIgnoreCase("POST")) {
+        String nouveauTitre = request.getParameter("nouveauTitre");
+        String nouvelleAnneeStr = request.getParameter("nouvelleAnnee");
+
+        if (nouveauTitre != null && nouvelleAnneeStr != null) {
+            try {
+                int nouvelleAnnee = Integer.parseInt(nouvelleAnneeStr);
+
+                Class.forName("org.mariadb.jdbc.Driver");
+                Connection conn4 = DriverManager.getConnection(url4, user4, password4);
+                String sql4 = "INSERT INTO Film (titre, année) VALUES (?, ?)";
+                
+                try (PreparedStatement pstmt4 = conn4.prepareStatement(sql4)) {
+                    pstmt4.setString(1, nouveauTitre);
+                    pstmt4.setInt(2, nouvelleAnnee);
+                    int rowsInserted = pstmt4.executeUpdate();
+                    
+                    if (rowsInserted > 0) {
+                        out.println("Le nouveau film a été ajouté avec succès.");
+                    } else {
+                        out.println("Erreur lors de l'ajout du nouveau film.");
+                    }
+                }
+
+                conn4.close();
+            } catch (NumberFormatException | ClassNotFoundException | SQLException e) {
+                // Gérer les exceptions
+                e.printStackTrace();
+            }
+        }
+    }
+    %>
 
 </body>
 </html>
